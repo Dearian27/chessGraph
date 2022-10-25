@@ -22,13 +22,10 @@
 }
 
 .desk {
-  /* display: -ms-grid; */
-  /* display: grid;
+  display: -ms-grid;
+  display: grid;
   grid-template-columns: repeat(8, 60px);
-  grid-template-rows: repeat(8, 60px); */
-  display: flex;
-  flex-wrap: wrap;
-  width: 480px;
+  grid-template-rows: repeat(8, 60px);
   position: relative;
 }
 
