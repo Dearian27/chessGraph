@@ -5,7 +5,7 @@ horseMove = (x, y) => {
 
   //spawn =>
   if (!horseSpawned) {
-    !horseSpawned;
+    horseSpawned = true;
     horse.classList.add('active');
   }
 
