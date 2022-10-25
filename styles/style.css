@@ -10,9 +10,30 @@
 
 }
 
+/** CONTAINER **/
+.container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 15px 0 15px 0;
+}
+
+.desk {
+  display: grid;
+  grid-template-columns: repeat(8, 60px);
+  grid-template-rows: repeat(8, 60px);
+}
+
+.cell {
+  background-color: rgb(255, 122, 122);
+  border: 1px solid white;
+}
+
+/**           **/
+
 .infoText {
   text-align: center;
-  animation: sizing 2s ease-in-out infinite;
+  /* animation: sizing 2s ease-in-out infinite; */
 }
 
 @keyframes sizing {
