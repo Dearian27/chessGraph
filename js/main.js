@@ -5,11 +5,28 @@ const horse = document.querySelector('.horse');
 let horseSpawned = false;
 
 const result = document.querySelector('.result');
+const infoText = document.querySelector('.infoText');
+let infoTextLine = 'Select mode', output = '',
+  lIndex = 0, //* index of letter in <infoTextLine>
+  tagC = 0; //* tag to stop recursive func
+
+const play = document.querySelector('.play');
+const watch = document.querySelector('.watch');
+const cancel = document.querySelector('.cancel');
+
+
+
+
+
+addEventListener('load', () => {
+  tagC++;
+  outputInfo(tagC);
+})
 
 const pageWidth = document.documentElement.scrollWidth
 const pageHeight = document.documentElement.scrollHeight
 
-let gameMode = 'play'; // play = 0 | watch = 1
+let gameMode = null; // play = 0 | watch = 1
 let steps = 0;
 
 const moves = [
@@ -42,4 +59,7 @@ const history = [ //* [y][x]
   //0 1  2  3  4  5  6  7
 ]
 
+const backup = () => {
+  gameMode = null;
+}
 // console.log(graph[0][0]) // 2

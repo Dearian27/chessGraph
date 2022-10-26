@@ -7,6 +7,13 @@ horseMove = (x, y) => {
   if (!horseSpawned) {
     horseSpawned = true;
     horse.classList.add('active');
+    //*  Typing info text
+    infoTextLine = 'Good luck!';
+    lIndex = 0;
+    output = '';
+    tagC++;
+    outputInfo(tagC)
+    //*                */
   }
 
   //correcting position =>
