@@ -26,9 +26,9 @@ addEventListener('click', (event) => {
       //* LOSE CHECK
       for (let i = 0; i < 8; i++) {
         if (Number(event.target.dataset.y) - 1 + moves[1][i] < 8 && //* змінити на horse.*
-          Number(event.target.dataset.y) - 1 + moves[1][i] >= 1 &&
+          Number(event.target.dataset.y) - 1 + moves[1][i] >= 0 &&
           Number(event.target.dataset.x) - 1 + moves[0][i] < 8 &&
-          Number(event.target.dataset.x) - 1 + moves[0][i] >= 1
+          Number(event.target.dataset.x) - 1 + moves[0][i] >= 0
         ) {
           if (history[Number(event.target.dataset.y) - 1 + moves[1][i]][Number(event.target.dataset.x) - 1 + moves[0][i]] === 0) {
             isLose = false;
