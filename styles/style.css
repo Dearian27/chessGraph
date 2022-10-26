@@ -124,10 +124,14 @@
   justify-content: space-around;
 }
 
-.infoText {}
+.infoText {
+  width: 60%;
+}
 
 .panel {
+  width: 40%;
   display: flex;
+  justify-content: space-around;
   column-gap: 8px;
 }
 

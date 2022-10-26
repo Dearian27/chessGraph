@@ -14,7 +14,13 @@ const play = document.querySelector('.play');
 const watch = document.querySelector('.watch');
 const cancel = document.querySelector('.cancel');
 
-
+const robotUrl = {
+  idle: "../img/robot/idle.png",
+  smile: "../img/robot/smile.png",
+  voice: "../img/robot/voice.png",
+  warning: "../img/robot/warning.png",
+  dead: "../img/robot/dead.png"
+}
 
 
 

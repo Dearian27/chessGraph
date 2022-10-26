@@ -45,6 +45,7 @@ addEventListener('click', (event) => {
       if (isLose) {
         result.innerHTML = "You lose";
         result.classList.add('active');
+        cancel.innerHTML = "menu";
         //*  Typing info text
         infoTextLine = 'Try again';
         lIndex = 0;
@@ -54,7 +55,9 @@ addEventListener('click', (event) => {
       }
       //* WIN THE GAME
       if (steps === 65) {
+        result.innerHTML = "You win!";
         result.classList.add('active');
+        cancel.innerHTML = "menu";
         //*  Typing info text
         infoTextLine = 'Congratulations!';
         lIndex = 0;

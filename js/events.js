@@ -24,6 +24,7 @@ const backUp = () => {
 
 addEventListener('click', event => {
   if (event.target == play || event.target == watch) {
+    cancel.innerHTML = "cancel";
     play.style.display = "none";
     watch.style.display = "none";
     cancel.style.display = "block";
@@ -39,6 +40,7 @@ addEventListener('click', event => {
     else gameMode = "watch";
   }
   else if (event.target == cancel) {
+    cancel.innerHTML = "cancel";
     play.style.display = "block";
     watch.style.display = "block";
     cancel.style.display = "none";
