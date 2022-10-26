@@ -1,6 +1,5 @@
 //* MOVE => CELL CLICK
 addEventListener('click', (event) => {
-
   if (gameMode === "play") {
     if (event.target.classList.contains('cell') &&
       !event.target.classList.contains('green')
