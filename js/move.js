@@ -41,8 +41,9 @@ addEventListener('click', (event) => {
         }
         if (isLose != false) isLose = true;
       }
-      //* LOSE THE GAME
+      //* LOSE THE GAME **************************//
       if (isLose) {
+        robot.src = robotUrl.warning;
         result.innerHTML = "You lose";
         result.classList.add('active');
         cancel.innerHTML = "menu";
@@ -50,11 +51,12 @@ addEventListener('click', (event) => {
         infoTextLine = 'Try again';
         lIndex = 0;
         output = '';
-        outputInfo(infoTextLine)
-        //*                */
+        outputInfo(tagC)
+        //****          ****/
       }
-      //* WIN THE GAME
+      //* WIN THE GAME **************************//
       if (steps === 65) {
+        robot.src = robotUrl.smile;
         result.innerHTML = "You win!";
         result.classList.add('active');
         cancel.innerHTML = "menu";
@@ -62,13 +64,28 @@ addEventListener('click', (event) => {
         infoTextLine = 'Congratulations!';
         lIndex = 0;
         output = '';
-        tag++;
-        outputInfo(tag)
+        tagC++;
+        outputInfo(tagC)
         //*                */
       }
     }
   }
-  else if (gameMode === 'watch') {
+  else if (gameMode === 'watch' && !botStarted &&
+    event.target.classList.contains('cell')) {
 
+    botStarted = true;
+    bot(event);
+
+    robot.src = robotUrl.voice;
+    //*  Typing info text
+    infoTextLine = 'Let\'s do this!';
+    lIndex = 0;
+    output = '';
+    tagC++;
+    outputInfo(tagC)
+    //****         ****/
+    setTimeout(() => {
+      robot.src = robotUrl.idle;
+    }, 2000)
   }
 })

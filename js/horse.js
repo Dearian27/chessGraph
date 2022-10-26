@@ -7,6 +7,7 @@ horseMove = (x, y) => {
   if (!horseSpawned) {
     horseSpawned = true;
     horse.classList.add('active');
+    robot.src = robotUrl.idle;
     //*  Typing info text
     infoTextLine = 'Good luck!';
     lIndex = 0;

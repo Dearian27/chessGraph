@@ -20,6 +20,8 @@ const backUp = () => {
   result.classList.remove('active');
   result.innerHTML = "";
 
+  //ROBOT
+  robot.src = robotUrl.idle;
 };
 
 addEventListener('click', event => {
@@ -29,15 +31,29 @@ addEventListener('click', event => {
     watch.style.display = "none";
     cancel.style.display = "block";
 
-    //*  Typing info text
-    infoTextLine = 'Choose your spawn';
-    lIndex = 0;
-    output = '';
-    tagC++;
-    outputInfo(tagC);
-    //*                */
-    if (event.target == play) gameMode = "play";
-    else gameMode = "watch";
+    if (event.target == play) {
+      gameMode = "play";
+      //*  Typing info text
+      robot.src = robotUrl.voice;
+      infoTextLine = 'Choose your spawn';
+      lIndex = 0;
+      output = '';
+      tagC++;
+      outputInfo(tagC);
+      //*                */
+    }
+    else {
+      gameMode = "watch"
+      //*  Typing info text
+      robot.src = robotUrl.voice;
+      infoTextLine = 'Choose my spawn';
+      lIndex = 0;
+      output = '';
+      tagC++;
+      outputInfo(tagC);
+      //*                */
+
+    }
   }
   else if (event.target == cancel) {
     cancel.innerHTML = "cancel";
