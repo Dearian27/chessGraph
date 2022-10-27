@@ -1,5 +1,16 @@
+const pageWidth = document.documentElement.scrollWidth;
+const pageHeight = document.documentElement.scrollHeight;
+
 const cells = document.querySelectorAll('.cell');
 let cellSize = 60;
+
+//ADAPTATION
+if (pageWidth < 420) {
+  cellSize = 40;
+}
+else if (pageWidth < 520) {
+  cellSize = 50;
+}
 
 const horse = document.querySelector('.horse');
 let horseSpawned = false;
@@ -31,8 +42,8 @@ addEventListener('load', () => {
   outputInfo(tagC);
 })
 
-const pageWidth = document.documentElement.scrollWidth
-const pageHeight = document.documentElement.scrollHeight
+
+
 
 let gameMode = null; // play = 0 | watch = 1
 let steps = 0;
@@ -66,8 +77,6 @@ let history = [ //* [y][x]
   [0, 0, 0, 0, 0, 0, 0, 0], // 7
   //0 1  2  3  4  5  6  7
 ]
-
-// console.log(graph[0][0]) // 2
 
 const bot = () => {
   if (steps == 64) {

@@ -229,6 +229,38 @@
 
 }
 
+@media (max-width: 420px) {
+  .desk {
+    grid-template-columns: repeat(8, 40px);
+    grid-template-rows: repeat(8, 40px);
+  }
+
+  .cell {
+    height: 40px;
+    width: 40px;
+  }
+
+  .horse {
+    height: 40px;
+    width: 40px;
+  }
+
+  .infoText {
+    min-width: 200px;
+    font-size: 20px;
+  }
+
+  .userPanel {
+    width: 320px;
+  }
+
+  .btn {
+    border-width: 3px;
+    padding: 8px 12px;
+    font-size: 18px;
+  }
+}
+
 @keyframes spawn {
   0% {
     opacity: 0;
