@@ -52,6 +52,7 @@ addEventListener('click', (event) => {
         infoTextLine = 'Try again';
         lIndex = 0;
         output = '';
+        tagC++;
         outputInfo(tagC, 'red')
         //****          ****/
       }
