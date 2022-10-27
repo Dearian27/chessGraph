@@ -17,7 +17,6 @@ const outputInfo = (tag, color = 'black') => {
     const interval = setTimeout(() => {
       output += infoTextLine[lIndex]
       infoText.innerHTML = lIndex % 2 ? output : output + '_';
-      // infoText.innerHTML = output + '_';
       lIndex++;
 
       if (output.length === infoTextLine.length) {
@@ -30,7 +29,3 @@ const outputInfo = (tag, color = 'black') => {
     }, 150)
   }
 }
-
-// const randomTime = () => {
-//   return Math.ceil(Math.random() * 3) * 90;
-// }

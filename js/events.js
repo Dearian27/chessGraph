@@ -71,7 +71,7 @@ addEventListener('click', event => {
       lIndex = 0;
       output = '';
       tagC++;
-      outputInfo(tagC);
+      outputInfo(tagC, 'black');
       //*                */
     }
     else {
@@ -82,7 +82,7 @@ addEventListener('click', event => {
       lIndex = 0;
       output = '';
       tagC++;
-      outputInfo(tagC);
+      outputInfo(tagC, 'black');
       //*                */
     }
   }
@@ -97,7 +97,7 @@ addEventListener('click', event => {
     lIndex = 0;
     output = '';
     tagC++;
-    outputInfo(tagC);
+    outputInfo(tagC, 'black');
     //*                */
     backUp();
   }
@@ -114,7 +114,7 @@ addEventListener('keydown', event => {
     lIndex = 0;
     output = '';
     tagC++;
-    outputInfo(tagC);
+    outputInfo(tagC), 'black';
     //*                */
     gameMode = "play";
   }
