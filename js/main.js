@@ -37,7 +37,7 @@ const pageHeight = document.documentElement.scrollHeight
 let gameMode = null; // play = 0 | watch = 1
 let steps = 0;
 
-const moves = [
+let moves = [
   [-2, -2, 1, 1, 2, 2, -1, -1], //* x
   [1, -1, 2, -2, -1, 1, -2, 2], //* y
   [64, 64, 64, 64, 64, 64, 64, 64] //* cell index on matrix
@@ -133,22 +133,13 @@ const bot = () => {
     return
   }
 
-  console.log("moves", moves);
-  // console.log(min);
-  // console.log(min);
-
-  // console.log("history", history);
-  console.log("graph", graph);
-  console.log(graph);
-  // console.log("history", history);
-
   const botMove = setTimeout(() => {
-    horseMove(Number(horse.dataset.x) + xmin, Number(horse.dataset.y) + ymin);
-    for (let i = 0; i < 8; i++) {
-      moves[2][i] = 64;
+    if (botStarted) {
+      horseMove(Number(horse.dataset.x) + xmin, Number(horse.dataset.y) + ymin);
+      for (let i = 0; i < 8; i++) {
+        moves[2][i] = 64;
+      }
+      bot();
     }
-
-
-    bot();
   }, 1200);
 }

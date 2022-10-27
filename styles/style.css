@@ -30,10 +30,10 @@
 }
 
 .cell {
+  font-size: 10px;
+  font-family: 'Gameplay';
   position: relative;
   transition: filter 0.5s ease;
-  width: 60px;
-  height: 60px;
   /**FOR JS**/
 }
 
@@ -56,6 +56,7 @@
   font-size: 30px;
   font-weight: 600;
   font-family: "Gameplay";
+  animation: 1.2s spawn ease;
 }
 
 .horse {
@@ -141,7 +142,6 @@
 
 }
 
-
 /**       **/
 
 .panel {
@@ -172,6 +172,62 @@
 
 /**            **/
 
+
+/** ADAPTATION **/
+
+@media (max-width: 530px) {
+  .desk {
+    grid-template-columns: repeat(8, 50px);
+    grid-template-rows: repeat(8, 50px);
+  }
+
+  .cell {
+    height: 50px;
+    width: 50px;
+  }
+
+  .horse {
+    height: 50px;
+    width: 50px;
+  }
+
+  .userPanel {
+    padding-top: 0;
+    width: 400px;
+    flex-direction: column;
+    margin-left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .robotMessage {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    font-size: 20px;
+    font-family: "Gameplay";
+  }
+
+  .robot {
+    width: 50px;
+  }
+
+  .infoText {
+    min-width: 300px;
+    font-size: 20px;
+  }
+
+  .panel {
+    padding-top: 20px;
+    column-gap: 20px;
+  }
+
+  .btn {
+    border-width: 3px;
+    padding: 10px 15px;
+    font-size: 20px;
+  }
+
+}
 
 @keyframes spawn {
   0% {

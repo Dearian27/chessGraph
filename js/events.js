@@ -22,6 +22,13 @@ const backUp = () => {
 
   //ROBOT
   robot.src = robotUrl.idle;
+  botStarted = false;
+
+  let moves = [
+    [-2, -2, 1, 1, 2, 2, -1, -1], //* x
+    [1, -1, 2, -2, -1, 1, -2, 2], //* y
+    [64, 64, 64, 64, 64, 64, 64, 64] //* cell index on matrix
+  ];
 
   //MATRIX
   graph = [
