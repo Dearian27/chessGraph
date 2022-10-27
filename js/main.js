@@ -78,6 +78,12 @@ let history = [ //* [y][x]
   //0 1  2  3  4  5  6  7
 ]
 
+const soundPlay = async (url, volume = 0.2) => {
+  const sound = await new Audio(url);
+  sound.volume = volume;
+  sound.play();
+}
+
 const bot = () => {
   if (steps == 64) {
     console.log('RETURN')
@@ -92,10 +98,8 @@ const bot = () => {
 
   //* CHANGE CELL
   currCell = document.querySelector(`.cell[data-x='${horse.dataset.x}'][data-y='${horse.dataset.y}']`); // (x,y);
-  console.log(currCell)
   currCell.innerHTML = steps;
   currCell.classList.add('green');
-  console.log(horse.dataset.x, horse.dataset.y)
   //*          */
 
 
@@ -122,6 +126,8 @@ const bot = () => {
     }
   }
   if (min == 64) {
+    soundPlay("../audio/botWin.mp3");
+
     result.innerHTML = "";
     result.classList.add('active');
     cancel.innerHTML = "menu";

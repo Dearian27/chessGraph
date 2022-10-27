@@ -56,6 +56,10 @@
   filter: brightness(80%);
 }
 
+.cell.green {
+  animation: color 1.2s spawn ease;
+}
+
 .cell.green::before {
   transition: 1s;
   position: absolute;

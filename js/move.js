@@ -42,6 +42,7 @@ addEventListener('click', (event) => {
       }
       //* LOSE THE GAME **************************//
       if (isLose) {
+        soundPlay("../audio/fail.mp3", 0.8);
         robot.src = robotUrl.warning;
         result.innerHTML = "You lose";
         result.classList.add('active');
@@ -55,7 +56,8 @@ addEventListener('click', (event) => {
         //****          ****/
       }
       //* WIN THE GAME **************************//
-      if (steps === 65) {
+      if (steps === 64) {
+        soundPlay("../audio/playerWin.mp3");
         robot.src = robotUrl.smile;
         result.innerHTML = "You win!";
         result.classList.add('active');
