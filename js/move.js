@@ -21,7 +21,6 @@ addEventListener('click', (event) => {
         steps++;
         event.target.innerHTML = steps;
         history[event.target.dataset.y - 1][event.target.dataset.x - 1] = steps;
-
         horseMove(event.target.dataset.x, event.target.dataset.y);
 
         // if  
@@ -39,7 +38,7 @@ addEventListener('click', (event) => {
 
 
         }
-        if (isLose != false) isLose = true;
+        if (isLose != false && steps !== 64) isLose = true;
       }
       //* LOSE THE GAME **************************//
       if (isLose) {
@@ -48,10 +47,11 @@ addEventListener('click', (event) => {
         result.classList.add('active');
         cancel.innerHTML = "menu";
         //*  Typing info text
+        infoText.innerHTML = "";
         infoTextLine = 'Try again';
         lIndex = 0;
         output = '';
-        outputInfo(tagC)
+        outputInfo(tagC, 'red')
         //****          ****/
       }
       //* WIN THE GAME **************************//
@@ -61,11 +61,12 @@ addEventListener('click', (event) => {
         result.classList.add('active');
         cancel.innerHTML = "menu";
         //*  Typing info text
+        infoText.innerHTML = "";
         infoTextLine = 'Congratulations!';
         lIndex = 0;
         output = '';
         tagC++;
-        outputInfo(tagC)
+        outputInfo(tagC, 'green')
         //*                */
       }
     }
@@ -73,8 +74,15 @@ addEventListener('click', (event) => {
   else if (gameMode === 'watch' && !botStarted &&
     event.target.classList.contains('cell')) {
 
+    // steps++;
+    horseMove(Number(event.target.dataset.x), Number(event.target.dataset.y))
+    //* CHANGE CELL
+    currCell = document.querySelector(`.cell[data-x='${event.target.dataset.x}'][data-y='${event.target.dataset.y}']`); // (x,y);
+    currCell.innerHTML = steps;
+    currCell.classList.add('green');
+    //*          */
     botStarted = true;
-    bot(event);
+    bot();
 
     robot.src = robotUrl.voice;
     //*  Typing info text

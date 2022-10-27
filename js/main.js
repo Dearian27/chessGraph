@@ -40,10 +40,10 @@ let steps = 0;
 const moves = [
   [-2, -2, 1, 1, 2, 2, -1, -1], //* x
   [1, -1, 2, -2, -1, 1, -2, 2], //* y
-  [null, null, null, null, null, null, null, null] //* cell index on matrix
+  [64, 64, 64, 64, 64, 64, 64, 64] //* cell index on matrix
 ];
 
-const graph = [
+let graph = [
   [2, 3, 4, 4, 4, 4, 3, 2], // 0
   [3, 4, 6, 6, 6, 6, 4, 3], // 1
   [4, 6, 8, 8, 8, 8, 6, 4], // 2
@@ -55,7 +55,7 @@ const graph = [
   //0 1  2  3  4  5  6  7
 ]
 
-const history = [ //* [y][x] 
+let history = [ //* [y][x] 
   [0, 0, 0, 0, 0, 0, 0, 0], // 0
   [0, 0, 0, 0, 0, 0, 0, 0], // 1
   [0, 0, 0, 0, 0, 0, 0, 0], // 2
@@ -69,25 +69,86 @@ const history = [ //* [y][x]
 
 // console.log(graph[0][0]) // 2
 
-const bot = (event = null) => {
-
-  if (event !== null) {
-    horseMove(event.target.dataset.x, event.target.dataset.y)
-  } else {
-
+const bot = () => {
+  if (steps == 64) {
+    console.log('RETURN')
+    return;
   }
+  steps++;
+  let currCell;
+
+  let min = moves[2][0],
+    xmin = moves[0][0],
+    ymin = moves[1][0];
+
+  //* CHANGE CELL
+  currCell = document.querySelector(`.cell[data-x='${horse.dataset.x}'][data-y='${horse.dataset.y}']`); // (x,y);
+  console.log(currCell)
+  currCell.innerHTML = steps;
+  currCell.classList.add('green');
+  console.log(horse.dataset.x, horse.dataset.y)
+  //*          */
+
+
+  //* CHANGE MATRIX
+  graph[Number(horse.dataset.y) - 1][Number(horse.dataset.x) - 1] = 64;   // [y][x]
+  history[Number(horse.dataset.y) - 1][Number(horse.dataset.x) - 1] = steps;   // [y][x]
+  //*          */
+
+  for (let i = 0; i < 8; i++) {
+    if (Number(horse.dataset.x) - 1 + moves[0][i] < 8 &&
+      Number(horse.dataset.x) - 1 + moves[0][i] >= 0 &&
+      Number(horse.dataset.y) - 1 + moves[1][i] >= 0 &&
+      Number(horse.dataset.y) - 1 + moves[1][i] < 8
+    ) {
+      graph[Number(horse.dataset.y) - 1 + moves[1][i]][Number(horse.dataset.x) - 1 + moves[0][i]] -= 1; // Decrease posibble ways
+      moves[2][i] = graph[Number(horse.dataset.y) - 1 + moves[1][i]][Number(horse.dataset.x) - 1 + moves[0][i]];
+    } else moves[2][i] = 64;
+
+    //SEARCH MINIMAL
+    if (min > moves[2][i] && !document.querySelector(`.cell[data-x='${Number(horse.dataset.x) + moves[0][i]}'][data-y='${Number(horse.dataset.y) + moves[1][i]}']`).classList.contains('green')) {
+      min = moves[2][i]; //REWRITE MINIMAL
+      xmin = moves[0][i];
+      ymin = moves[1][i];
+    }
+  }
+  if (min == 64) {
+    result.innerHTML = "";
+    result.classList.add('active');
+    cancel.innerHTML = "menu";
+
+    //ROBOT
+    robot.src = robotUrl.smile;
+    //*  Typing info text
+    infoTextLine = 'It was easy';
+    infoText.innerHTML = '';
+    lIndex = 0;
+    output = '';
+    tagC++;
+    outputInfo(tagC, 'blue')
+    //****         ****/
+    setTimeout(() => {
+      robot.src = robotUrl.idle;
+    }, 2000)
+    return
+  }
+
+  console.log("moves", moves);
+  // console.log(min);
+  // console.log(min);
+
+  // console.log("history", history);
+  console.log("graph", graph);
+  console.log(graph);
+  // console.log("history", history);
+
   const botMove = setTimeout(() => {
-    steps++;
+    horseMove(Number(horse.dataset.x) + xmin, Number(horse.dataset.y) + ymin);
+    for (let i = 0; i < 8; i++) {
+      moves[2][i] = 64;
+    }
 
-    //* CHANGE MATRIX 
-    graph[horse.dataset.y - 1][horse.dataset.x - 1] = 64;   // [y][x]
-    history[horse.dataset.y - 1][horse.dataset.x - 1] = steps;   // [y][x]
-    //* CHANGE CELL
-    const currCell = document.querySelector(`.cell[data-x='${horse.dataset.x}'][data-y='${horse.dataset.y}']`); // (x,y);
-    currCell.innerHTML = steps;
-    currCell.classList.add('green');
-    //*          */
 
-    //horseMove(x,y); 
+    bot();
   }, 1200);
 }

@@ -1,4 +1,17 @@
-const outputInfo = (tag) => {
+const outputInfo = (tag, color = 'black') => {
+
+  if (color == 'black') {
+    infoText.style.color = 'black';
+  }
+  else if (color == 'green') {
+    infoText.style.color = '#95ff3f';
+  }
+  else if (color == 'red') {
+    infoText.style.color = '#ff4b33';
+  }
+  else if (color == 'blue') {
+    infoText.style.color = '#00CDFC';
+  }
 
   if (tag == tagC) {
     const interval = setTimeout(() => {
@@ -12,7 +25,7 @@ const outputInfo = (tag) => {
         return;
       }
       else {
-        outputInfo(tag)
+        outputInfo(tag, color)
       }
     }, 150)
   }
