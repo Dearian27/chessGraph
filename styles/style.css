@@ -75,7 +75,7 @@
   font-size: 30px;
   font-weight: 600;
   font-family: "Gameplay";
-  animation: 1.2s spawn ease;
+  animation: 1.6s greening ease;
 }
 
 .horse {
@@ -280,8 +280,22 @@
   }
 }
 
-@keyframes spawn {
+@keyframes greening {
   0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes spawn {
+  50% {
     opacity: 0;
   }
 
