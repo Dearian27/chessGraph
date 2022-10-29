@@ -295,7 +295,7 @@
 }
 
 @keyframes spawn {
-  50% {
+  0% {
     opacity: 0;
   }
 
