@@ -5,23 +5,106 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles/fonts.css">
   <link rel="stylesheet" href="styles/style.css">
   <title>cssHorse</title>
 </head>
 
 <body>
   <header class="header">
-
+    <span>Horse Graph</span>
+    <img src="./img/info.png" alt="info">
   </header>
   <main class="container">
-
+    <div class="desk">
+      <section class="result">You won</section>
+      <div class="horse" data-x="1" data-y="1"><img src="./img/horse.png" alt=""></div>
+      <div class="cell" data-x="1" data-y="1"></div>
+      <div class="cell" data-x="2" data-y="1"></div>
+      <div class="cell" data-x="3" data-y="1"></div>
+      <div class="cell" data-x="4" data-y="1"></div>
+      <div class="cell" data-x="5" data-y="1"></div>
+      <div class="cell" data-x="6" data-y="1"></div>
+      <div class="cell" data-x="7" data-y="1"></div>
+      <div class="cell" data-x="8" data-y="1"></div>
+      <div class="cell" data-x="1" data-y="2"></div>
+      <div class="cell" data-x="2" data-y="2"></div>
+      <div class="cell" data-x="3" data-y="2"></div>
+      <div class="cell" data-x="4" data-y="2"></div>
+      <div class="cell" data-x="5" data-y="2"></div>
+      <div class="cell" data-x="6" data-y="2"></div>
+      <div class="cell" data-x="7" data-y="2"></div>
+      <div class="cell" data-x="8" data-y="2"></div>
+      <div class="cell" data-x="1" data-y="3"></div>
+      <div class="cell" data-x="2" data-y="3"></div>
+      <div class="cell" data-x="3" data-y="3"></div>
+      <div class="cell" data-x="4" data-y="3"></div>
+      <div class="cell" data-x="5" data-y="3"></div>
+      <div class="cell" data-x="6" data-y="3"></div>
+      <div class="cell" data-x="7" data-y="3"></div>
+      <div class="cell" data-x="8" data-y="3"></div>
+      <div class="cell" data-x="1" data-y="4"></div>
+      <div class="cell" data-x="2" data-y="4"></div>
+      <div class="cell" data-x="3" data-y="4"></div>
+      <div class="cell" data-x="4" data-y="4"></div>
+      <div class="cell" data-x="5" data-y="4"></div>
+      <div class="cell" data-x="6" data-y="4"></div>
+      <div class="cell" data-x="7" data-y="4"></div>
+      <div class="cell" data-x="8" data-y="4"></div>
+      <div class="cell" data-x="1" data-y="5"></div>
+      <div class="cell" data-x="2" data-y="5"></div>
+      <div class="cell" data-x="3" data-y="5"></div>
+      <div class="cell" data-x="4" data-y="5"></div>
+      <div class="cell" data-x="5" data-y="5"></div>
+      <div class="cell" data-x="6" data-y="5"></div>
+      <div class="cell" data-x="7" data-y="5"></div>
+      <div class="cell" data-x="8" data-y="5"></div>
+      <div class="cell" data-x="1" data-y="6"></div>
+      <div class="cell" data-x="2" data-y="6"></div>
+      <div class="cell" data-x="3" data-y="6"></div>
+      <div class="cell" data-x="4" data-y="6"></div>
+      <div class="cell" data-x="5" data-y="6"></div>
+      <div class="cell" data-x="6" data-y="6"></div>
+      <div class="cell" data-x="7" data-y="6"></div>
+      <div class="cell" data-x="8" data-y="6"></div>
+      <div class="cell" data-x="1" data-y="7"></div>
+      <div class="cell" data-x="2" data-y="7"></div>
+      <div class="cell" data-x="3" data-y="7"></div>
+      <div class="cell" data-x="4" data-y="7"></div>
+      <div class="cell" data-x="5" data-y="7"></div>
+      <div class="cell" data-x="6" data-y="7"></div>
+      <div class="cell" data-x="7" data-y="7"></div>
+      <div class="cell" data-x="8" data-y="7"></div>
+      <div class="cell" data-x="1" data-y="8"></div>
+      <div class="cell" data-x="2" data-y="8"></div>
+      <div class="cell" data-x="3" data-y="8"></div>
+      <div class="cell" data-x="4" data-y="8"></div>
+      <div class="cell" data-x="5" data-y="8"></div>
+      <div class="cell" data-x="6" data-y="8"></div>
+      <div class="cell" data-x="7" data-y="8"></div>
+      <div class="cell" data-x="8" data-y="8"></div>
+    </div>
   </main>
+
   <article class="userPanel">
-    <div class="infoText">Press start</div>
-    <button>start</button>
+    <article class="robotMessage">
+      <img class="robot" src="./img/robot/idle.png" alt="robot">
+      :<div class="infoText"></div>
+    </article>
+    <article class="panel">
+      <button class="btn play">Play</button>
+      <button class="btn watch">Watch</button>
+      <button class="btn cancel none">Cancel</button>
+    </article>
+
   </article>
 
   <script src="./js/main.js"></script>
+  <script src="./js/events.js"></script>
+  <script src="./js/infoText.js"></script>
+  <script src="./js/horse.js"></script>
+  <script src="./js/cells.js"></script>
+  <script src="./js/move.js"></script>
 </body>
 
 </html>
